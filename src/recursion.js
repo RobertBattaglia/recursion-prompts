@@ -54,7 +54,7 @@ var arraySum = function(array) {
 
 	var copyArray = array.slice();
 	var firstElement = copyArray.shift();
-	copyArray[0] = arraySum(firstElement) + arraySum(copyArray[0])
+	copyArray[0] = arraySum(firstElement) + arraySum(copyArray[0]);
 	
 	return arraySum(copyArray);
 };
@@ -74,6 +74,11 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+	if (n >= -1 && n <= 1) {
+		return 0;
+	}
+	var nextNum = n > 0 ? n - 1 : n + 1;
+	return nextNum + sumBelow(nextNum);
 };
 
 // 6. Get the integers within a range (x, y).
